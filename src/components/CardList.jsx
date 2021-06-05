@@ -14,7 +14,7 @@ const CardList = () => {
         }
       })
       .then((dataResponse) => {
-        setData(dataResponse.data.results.slice(0, 6));
+        setData(dataResponse.data.results.slice(0, 8));
       })
       .catch((error) => {
         console.log("error", error);
