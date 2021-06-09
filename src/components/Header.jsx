@@ -1,10 +1,10 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({ img }) => {
   return (
     <header class="App-Header">
-      <img src="" alt="" />
-      <input type="text"></input>
+      <img src={img} alt="banner" />
+      <input type="text" placeholder="Search" id="App-Header-Search"></input>
     </header>
   );
 };

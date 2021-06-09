@@ -1,10 +1,22 @@
 .App-Header {
-  background-color: #282c34;
-  width: 70%;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  height: 50px;
+  width: 60%;
+  border: solid 1px rgb(204, 200, 200);
   text-align: center;
   margin: auto;
 }
 
+#App-Header-Search {
+  width: 100%;
+  font-size: 1.2em;
+  border: none;
+}
+#App-Header-Search:focus {
+  outline: none;
+}
 .App-link {
   color: #61dafb;
 }
@@ -14,24 +26,50 @@
 .App-Container {
   width: 60%;
   margin: auto;
-}
-.App-Card-Image {
-  width: 100%;
-  height: 100%;
-}
-.App-Card {
-  width: 100%;
+  border: solid 1px rgb(204, 200, 200);
 }
 .App-Card-List {
   margin: auto;
+  padding: 30px 30px 30px 30px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  box-sizing: border-box;
 }
 .App-Card {
+  position: relative;
+  width: 100%;
   flex: 4 0 calc(19% - 15px);
   display: flex;
   flex-direction: column;
   margin: 15px;
+}
+.App-Card-Link {
+  position: relative;
+  display: flex;
+}
+.App-Card-Link:hover {
+  -webkit-box-shadow: 0px 0px 8px 2px #000000;
+  -moz-box-shadow: 0px 0px 8px 2px #000000;
+  box-shadow: 0px 0px 8px 2px #000000;
+}
+
+.App-Card-Link:active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.App-Card-Image {
+  width: 100%;
+  height: 325px;
+}
+
+.App-Card-Name {
+  color: black;
+  padding: 10px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
 }
