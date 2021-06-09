@@ -2,7 +2,7 @@ import React from "react";
 
 const Card = ({ name, img }) => {
   return (
-    <div class="App-Card">
+    <div className="App-Card">
       <img src={img} alt="" class="App-Card-Image" />
       <label htmlFor="">{name}</label>
     </div>
