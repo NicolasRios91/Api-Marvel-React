@@ -1,4 +1,5 @@
 import React from "react";
+
 const Header = ({ onChange, img }) => {
   return (
     <header className="App-Header">
@@ -10,6 +11,7 @@ const Header = ({ onChange, img }) => {
         placeholder="Search"
         results="0"
       ></input>
+
     </header>
   );
 };
