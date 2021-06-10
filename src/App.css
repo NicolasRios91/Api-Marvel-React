@@ -67,8 +67,9 @@
 }
 
 .App-Card-Name {
-  color: black;
+  color: white;
   padding: 10px;
+  font-size: 1.2em;
   font-weight: bold;
   position: absolute;
   bottom: 0;
