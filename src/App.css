@@ -29,6 +29,7 @@
   border: solid 1px rgb(204, 200, 200);
 }
 .App-Card-List {
+  position: relative;
   margin: auto;
   padding: 30px 30px 30px 30px;
   width: 100%;
@@ -45,17 +46,13 @@
   flex-direction: column;
   margin: 15px;
 }
-.App-Card-Link {
-  position: relative;
-  display: flex;
-}
-.App-Card-Link:hover {
+.App-Card:hover {
   -webkit-box-shadow: 0px 0px 8px 2px #000000;
   -moz-box-shadow: 0px 0px 8px 2px #000000;
   box-shadow: 0px 0px 8px 2px #000000;
 }
 
-.App-Card-Link:active {
+.App-Card:active {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -74,3 +71,46 @@
   position: absolute;
   bottom: 0;
 }
+.App-Card-List {
+  width: 100%;
+  height: 100%;
+}
+
+.App-Modal {
+  width: 40%;
+  position: absolute;
+  background-color: white;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  overflow: auto;
+  border: 1px solid black;
+  z-index: 9999;
+  top: 25%;
+}
+
+.App-modal-item-container {
+  /* padding: 10px 10px 10px 10px; */
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+}
+#App-Modal-character-name {
+  font-size: 1.4em;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.App-modal-image {
+  padding: 0px 10px 0px 10px;
+  width: 120px;
+  height: 125px;
+}
+
+/* p {
+  vertical-align: middle;
+
+  left: 15px;
+  top: 15px;
+} */

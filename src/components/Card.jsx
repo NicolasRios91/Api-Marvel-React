@@ -1,15 +1,25 @@
-import React from "react";
-
-const Card = ({ name, img }) => {
+import React, { useState } from "react";
+import Modal from "./Modal";
+const Card = ({ id, name, img }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-    <div className="App-Card">
-      <a href="" className="App-Card-Link">
-        <img src={img} alt="" class="App-Card-Image"></img>
+    <>
+      <div className="App-Card" onClick={() => setIsModalOpen(true)}>
+        <img src={img} alt="" className="App-Card-Image" />
         <label htmlFor="" className="App-Card-Name">
           {name}
         </label>
-      </a>
-    </div>
+      </div>
+
+      {isModalOpen && (
+        <Modal
+          className="App-Card-Modal"
+          characterName={name}
+          characterId={id}
+          setIsOpen={setIsModalOpen}
+        />
+      )}
+    </>
   );
 };
 
