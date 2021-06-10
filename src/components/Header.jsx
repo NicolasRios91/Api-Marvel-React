@@ -1,10 +1,15 @@
 import React from "react";
-
-const Header = ({ img }) => {
+const Header = ({ onChange, img }) => {
   return (
-    <header class="App-Header">
+    <header className="App-Header">
       <img src={img} alt="banner" />
-      <input type="text" placeholder="Search" id="App-Header-Search"></input>
+      <input
+        type="text"
+        onChange={(e) => onChange(e.target.value)}
+        id="App-Header-Search"
+        placeholder="Search"
+        results="0"
+      ></input>
     </header>
   );
 };

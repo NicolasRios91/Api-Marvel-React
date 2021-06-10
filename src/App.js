@@ -1,16 +1,45 @@
 import "./App.css";
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { fetchList } from "./api";
+import { randomCharacter } from "./utils";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import CardList from "./components/CardList";
-import banner from "./img/banner.jpg";
+
+import marvel from "./img/bannerMarvel.jpg";
+
 function App() {
+  const [searchValue, setSearchValue] = useState(randomCharacter());
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    fetchList(searchValue)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((dataResponse) => {
+        setData(dataResponse.data.results.slice(0, 8));
+      })
+      .catch((error) => {
+        console.log("error", error);
+        setError(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [searchValue]);
+
+  if (loading) return "Loading..";
+  if (error) return "error..";
+
   return (
     <>
-      <Header img={banner}></Header>
-      <div class="App-Container">
-        <CardList> </CardList>
+      <Header onChange={setSearchValue} img={marvel}></Header>
+      <div className="App-Container">
+        <CardList characterList={data}> </CardList>
       </div>
       <Footer></Footer>
     </>
