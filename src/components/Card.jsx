@@ -3,8 +3,12 @@ import React from "react";
 const Card = ({ name, img }) => {
   return (
     <div className="App-Card">
-      <img src={img} alt="" class="App-Card-Image" />
-      <label htmlFor="">{name}</label>
+      <a href="" className="App-Card-Link">
+        <img src={img} alt="" class="App-Card-Image"></img>
+        <label htmlFor="" className="App-Card-Name">
+          {name}
+        </label>
+      </a>
     </div>
   );
 };

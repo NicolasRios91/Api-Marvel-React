@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import CardList from "./components/CardList";
 
+import marvel from "./img/bannerMarvel.jpg";
+
 function App() {
   const [searchValue, setSearchValue] = useState(randomCharacter());
   const [data, setData] = useState(null);
@@ -35,7 +37,7 @@ function App() {
 
   return (
     <>
-      <Header onChange={setSearchValue}></Header>
+      <Header onChange={setSearchValue} img={marvel}></Header>
       <div className="App-Container">
         <CardList characterList={data}> </CardList>
       </div>

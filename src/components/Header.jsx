@@ -6,15 +6,11 @@ const Header = ({ onChange, img }) => {
       <img src={img} alt="banner" />
       <input
         type="text"
-        placeholder="Search"
         onChange={(e) => onChange(e.target.value)}
+        id="App-Header-Search"
+        placeholder="Search"
+        results="0"
       ></input>
-
-const Header = ({ onChange }) => {
-  return (
-    <header className="App-Header">
-      <img src="" alt="" />
-      <input type="text" onChange={(e) => onChange(e.target.value)}></input>
 
     </header>
   );
