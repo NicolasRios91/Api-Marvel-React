@@ -5,6 +5,7 @@ import { randomCharacter } from "./utils";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import CardList from "./components/CardList";
+
 import marvel from "./img/bannerMarvel.jpg";
 
 function App() {

@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
+
 const CardList = ({ characterList }) => {
   return (
     <div className="App-Card-List">

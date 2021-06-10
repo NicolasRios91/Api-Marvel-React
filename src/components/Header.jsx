@@ -1,5 +1,4 @@
 import React from "react";
-
 const Header = ({ onChange, img }) => {
   return (
     <header className="App-Header">
