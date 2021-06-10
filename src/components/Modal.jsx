@@ -29,26 +29,35 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
   if (error) return "error..";
   return (
     <div className="App-Modal">
-      <button onClick={() => setIsOpen(false)}>Close</button>
-      <p id="App-Modal-character-name">{characterName}</p>
-      {data.map((element) => {
-        let img = element.thumbnail.path + "." + element.thumbnail.extension;
-        let comicTitle = element.title;
-        let description = element.description;
-        return (
-          <>
-            <div className="App-modal-item-container">
-              <div className="App-modal-item">
-                <img src={img} alt="modal-image" className="App-modal-image" />
+      <div className="App-modal-header">
+        <p id="App-Modal-character-name">{characterName}</p>
+        <button onClick={() => setIsOpen(false)}>Close</button>
+      </div>
+      <div className="App-modal-item-list">
+        {data.map((element) => {
+          let img = element.thumbnail.path + "." + element.thumbnail.extension;
+          let comicTitle = element.title;
+          let description = element.description;
+          return (
+            <>
+              <div className="App-modal-item-container">
+                <div className="App-modal-item">
+                  <img
+                    src={img}
+                    alt="modal-image"
+                    className="App-modal-image"
+                  />
+                </div>
+                <div className="App-modal-content">
+                  <p id="App-modal-content-comicTitle">{comicTitle}</p>
+                  <br />
+                  <p>{description}</p>
+                </div>
               </div>
-              <div className="App-modal-content">
-                <p>{comicTitle}</p>
-                <p>{description}</p>
-              </div>
-            </div>
-          </>
-        );
-      })}
+            </>
+          );
+        })}
+      </div>
     </div>
   );
 };
