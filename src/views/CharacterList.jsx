@@ -1,14 +1,14 @@
-import "./App.css";
+import "../App.css";
 import React, { useState, useEffect } from "react";
-import { fetchList } from "./api";
-import { randomCharacter } from "./utils";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import CardList from "./components/CardList";
+import { fetchList } from "../api";
+import { randomCharacter } from "../utils";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import CardList from "../components/CardList";
 
-import marvel from "./img/bannerMarvel.jpg";
+import marvel from "../img/bannerMarvel.jpg";
 
-function App() {
+const CharacterList = () => {
   const [searchValue, setSearchValue] = useState(randomCharacter());
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -44,6 +44,6 @@ function App() {
       <Footer></Footer>
     </>
   );
-}
+};
 
-export default App;
+export default CharacterList;

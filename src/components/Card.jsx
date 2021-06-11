@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
+
 const Card = ({ id, name, img }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
