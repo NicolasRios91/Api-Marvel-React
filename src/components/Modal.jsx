@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { fetchComicList } from "../api";
+import { useHistory } from "react-router-dom";
 
 const Modal = ({ characterId, characterName, setIsOpen }) => {
+  const history = useHistory();
   const [data, setData] = useState();
 
   const [loading, setLoading] = useState(true);
@@ -34,14 +36,17 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
         <button onClick={() => setIsOpen(false)}>Close</button>
       </div>
       <div className="App-modal-item-list">
-        {data.map((element) => {
-          let img = element.thumbnail.path + "." + element.thumbnail.extension;
-          let comicTitle = element.title;
-          let description = element.description;
+        {data.map((comic) => {
+          let img = comic.thumbnail.path + "." + comic.thumbnail.extension;
+          let comicTitle = comic.title;
+          let description = comic.description;
           return (
             <>
               <div className="App-modal-item-container">
-                <div className="App-modal-item">
+                <div
+                  className="App-modal-item"
+                  onClick={() => history.push("/comic", { comic })}
+                >
                   <img
                     src={img}
                     alt="modal-image"
