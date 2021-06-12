@@ -1,0 +1,13 @@
+.Comic-Preview-Content {
+  margin: auto;
+  padding: 15px;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  border: solid 1px rgb(204, 200, 200);
+}
+
+.Comic-Preview-Description {
+  padding-left: 20px;
+}
