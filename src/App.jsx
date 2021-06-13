@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import CharacterList from "./views/CharacterList";
-import ComicPreview from "./views/ComicPreview";
+import CharacterList from "./views/CharacterList/CharacterList";
+import ComicPreview from "./views/ComicPreview/ComicPreview";
 const App = () => {
   return (
     <Router>

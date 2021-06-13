@@ -5,16 +5,16 @@ const Card = ({ id, name, img }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>
-      <div className="App-Card" onClick={() => setIsModalOpen(true)}>
-        <img src={img} alt="" className="App-Card-Image" />
-        <label htmlFor="" className="App-Card-Name">
+      <div className="card" onClick={() => setIsModalOpen(true)}>
+        <img src={img} alt="" className="card-image" />
+        <label htmlFor="" className="card-name">
           {name}
         </label>
       </div>
 
       {isModalOpen && (
         <Modal
-          className="App-Card-Modal"
+          className="card-modal"
           characterName={name}
           characterId={id}
           setIsOpen={setIsModalOpen}

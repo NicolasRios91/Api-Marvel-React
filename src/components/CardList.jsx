@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const CardList = ({ characterList }) => {
   return (
-    <div className="App-Card-List">
+    <div className="card-list">
       {characterList.map((element) => {
         let img = element.thumbnail.path + "." + element.thumbnail.extension;
         return (
