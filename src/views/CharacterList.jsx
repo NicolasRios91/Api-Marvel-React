@@ -5,15 +5,21 @@ import { randomCharacter } from "../utils";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import CardList from "../components/CardList";
-
+import { useHistory } from "react-router-dom";
 import marvel from "../img/bannerMarvel.jpg";
 
 const CharacterList = () => {
+  const history = useHistory();
   const [searchValue, setSearchValue] = useState(randomCharacter());
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
+    if (searchValue.startsWith("http")) {
+      const res = searchValue.split("/");
+      const comicId = res[5];
+      history.push("/comic", { comicId });
+    }
     fetchList(searchValue)
       .then((response) => {
         if (response.ok) {
