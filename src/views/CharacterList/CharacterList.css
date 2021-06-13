@@ -1,4 +1,4 @@
-.App-Header {
+.header-list{
   display: flex;
   flex-direction: row;
   background-color: white;
@@ -9,12 +9,12 @@
   margin: auto;
 }
 
-#App-Header-Search {
+#header-search {
   width: 100%;
   font-size: 1.2em;
   border: none;
 }
-#App-Header-Search:focus {
+#header-search:focus {
   outline: none;
 }
 .App-link {
@@ -23,12 +23,12 @@
 .App {
   text-align: center;
 }
-.App-Container {
+.character-list-container {
   width: 60%;
   margin: auto;
   border: solid 1px rgb(204, 200, 200);
 }
-.App-Card-List {
+.card-list {
   position: relative;
   margin: auto;
   padding: 30px 30px 30px 30px;
@@ -38,7 +38,7 @@
   justify-content: space-evenly;
   box-sizing: border-box;
 }
-.App-Card {
+.card {
   position: relative;
   width: 100%;
   flex: 4 0 calc(19% - 15px);
@@ -46,24 +46,24 @@
   flex-direction: column;
   margin: 15px;
 }
-.App-Card:hover {
+.card:hover {
   -webkit-box-shadow: 0px 0px 8px 2px #000000;
   -moz-box-shadow: 0px 0px 8px 2px #000000;
   box-shadow: 0px 0px 8px 2px #000000;
 }
 
-.App-Card:active {
+.card:active {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
 
-.App-Card-Image {
+.card-image {
   width: 100%;
   height: 325px;
 }
 
-.App-Card-Name {
+.card-name {
   color: white;
   padding: 10px;
   font-size: 1.2em;
@@ -71,12 +71,12 @@
   position: absolute;
   bottom: 0;
 }
-.App-Card-List {
+.card-list {
   width: 100%;
   height: 100%;
 }
 
-.App-Modal {
+.modal-container {
   padding: 10px;
   width: 40%;
   position: absolute;
@@ -91,7 +91,7 @@
   border-radius: 10px;
   box-sizing: border-box;
 }
-.App-modal-header {
+.modal-header {
   box-sizing: border-box;
   margin-bottom: 20px;
   display: flex;
@@ -99,7 +99,7 @@
   justify-content: space-between;
   position: relative;
 }
-.App-modal-item-list {
+.modal-itemList {
   width: 100%;
   position: relative;
   background-color: white;
@@ -109,36 +109,36 @@
   height: 300px;
   overflow: auto;
 }
-.App-modal-item-container {
+.modal-item-container {
   padding: 10px 10px 10px 10px;
   height: 130px;
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
 }
-#App-Modal-character-name {
+#modal-characterName {
   font-size: 1.4em;
   font-weight: bold;
   padding-left: 20px;
 }
 
-.App-modal-image {
+.modal-image {
   padding: 0px 10px 0px 10px;
   border-radius: 15px;
   width: 100px;
   height: 120px;
 }
-.App-modal-content {
+.modal-info {
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-#App-modal-content-comicTitle {
+#modal-comicTitle {
   font-weight: bold;
 }
-.App-modal-content,
+.modal-info,
 p {
   margin: unset;
 }

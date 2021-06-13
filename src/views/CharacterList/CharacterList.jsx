@@ -1,12 +1,12 @@
-import "../App.css";
+import "./CharacterList.css";
 import React, { useState, useEffect } from "react";
-import { fetchList } from "../api";
-import { randomCharacter } from "../utils";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import CardList from "../components/CardList";
+import { fetchList } from "../../api";
+import { randomCharacter } from "../../utils";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import CardList from "../../components/CardList";
 import { useHistory } from "react-router-dom";
-import marvel from "../img/bannerMarvel.jpg";
+import marvel from "../../img/bannerMarvel.jpg";
 
 const CharacterList = () => {
   const history = useHistory();
@@ -44,7 +44,7 @@ const CharacterList = () => {
   return (
     <>
       <Header onChange={setSearchValue} img={marvel}></Header>
-      <div className="App-Container">
+      <div className="character-list-container">
         <CardList characterList={data}> </CardList>
       </div>
       <Footer></Footer>

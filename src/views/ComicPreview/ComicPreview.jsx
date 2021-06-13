@@ -1,8 +1,8 @@
-import "../ComicPreview.css";
+import "./ComicPreview.css";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { useHistory } from "react-router-dom";
-import { fetchComic } from "../api/index";
+import { fetchComic } from "../../api/index";
 
 const ComicPreview = () => {
   const location = useLocation();
@@ -60,16 +60,18 @@ const ComicPreview = () => {
 
   return (
     <>
-      <button onClick={() => history.push("/")}>Back</button>
-      <div className="Comic-Preview-Content">
-        <div className="Comic-Preview-Image">
+      <nav className="comic-navigation">
+      <button id="back-btn"onClick={() => history.push("/")}>&#8249;</button>
+      </nav>
+      <div className="comic-container">
+        <div className="comic-image">
           <img src={image} alt="comic Image" id="Comic-Image" />
         </div>
-        <div className="Comic-Preview-Information">
+        <div className="comic-info">
           <h3>{comic.title}</h3>
-          <p className="Comic-Preview-data">Published: {date.date}</p>
-          <p className="Comic-Preview-data">{creators}</p>
-          <p className="Comic-Preview-description">{comic.description}</p>
+          <p className="comic-date">Published: {date.date}</p>
+          <p className="comic-creators">{creators}</p>
+          <p className="comic-description">{comic.description}</p>
         </div>
       </div>
     </>

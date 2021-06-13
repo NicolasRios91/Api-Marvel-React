@@ -30,31 +30,31 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
   if (loading) return "Loading..";
   if (error) return "error..";
   return (
-    <div className="App-Modal">
-      <div className="App-modal-header">
-        <p id="App-Modal-character-name">{characterName}</p>
+    <div className="modal-container">
+      <div className="modal-header">
+        <p id="modal-characterName">{characterName}</p>
         <button onClick={() => setIsOpen(false)}>Close</button>
       </div>
-      <div className="App-modal-item-list">
+      <div className="modal-itemList">
         {data.map((comic) => {
           let img = comic.thumbnail.path + "." + comic.thumbnail.extension;
           let comicTitle = comic.title;
           let description = comic.description;
           return (
             <>
-              <div className="App-modal-item-container">
+              <div className="modal-item-container">
                 <div
-                  className="App-modal-item"
+                  className="modal-item"
                   onClick={() => history.push("/comic", { comic })}
                 >
                   <img
                     src={img}
                     alt="modal-image"
-                    className="App-modal-image"
+                    className="modal-image"
                   />
                 </div>
-                <div className="App-modal-content">
-                  <p id="App-modal-content-comicTitle">{comicTitle}</p>
+                <div className="modal-info">
+                  <p id="modal-comicTitle">{comicTitle}</p>
                   <br />
                   <p>{description}</p>
                 </div>
