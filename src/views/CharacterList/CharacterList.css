@@ -27,7 +27,8 @@
   width: 60%;
   margin: auto;
   border: solid 1px rgb(204, 200, 200);
-}
+  border-top: none;
+ }
 .card-list {
   position: relative;
   margin: auto;

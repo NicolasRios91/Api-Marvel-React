@@ -47,7 +47,6 @@ const CharacterList = () => {
         setLoading(false);
       });
   }, [searchValue]);
-
   if (loading) return null;
   if (error) return "error..";
 
