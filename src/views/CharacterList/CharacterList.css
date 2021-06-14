@@ -31,21 +31,61 @@
 .card-list {
   position: relative;
   margin: auto;
-  padding: 30px 30px 30px 30px;
+  padding: 0px 30px 30px 30px;
   width: 100%;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   box-sizing: border-box;
+}
+.card-container{
+  display: flex;
+  flex-direction: column;
+  flex: 4 0 calc(19% - 15px);
+  width: 100%;
+  margin: 15px;
+  margin-top: 0;
+  box-sizing: border-box;
+
+}
+.checkBox-character,.checkBox-favourite{
+  visibility:hidden;
+  font-size:30px;
+  height: 40px;
+  color:yellow;
+  cursor:pointer;
+}
+
+.checkBox-favourite{
+  /* margin-left: 48%; */
+  position:absolute;
+  top:0;
+  right:0;
+  margin-right: 23%;
+}
+.checkBox-character{
+  margin-left: 43%;
+}
+
+.checkBox-character:before,.checkBox-favourite::before {
+  content:"\2606";
+ /* position: absolute; */
+ visibility:visible;
+}
+.checkBox-character:checked:before,.checkBox-favourite:checked:before {
+  content:"\2605";
+  /* position: absolute; */
+ visibility: visible;
 }
 .card {
   position: relative;
   width: 100%;
   height: 325px;
-  flex: 4 0 calc(19% - 15px);
+  /* flex: 4 0 calc(19% - 15px); */
   display: flex;
   flex-direction: column;
-  margin: 15px;
+  /* margin: 15px; */
   box-shadow: inset 0px -80px 60px #000000;
 }
 .card:hover {

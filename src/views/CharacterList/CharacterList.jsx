@@ -56,14 +56,15 @@ const CharacterList = () => {
       <Header onChange={setSearchValue} img={marvel}></Header>
 
       <div className="character-list-container">
-        <nav>
+        
           <input
+            id="favourites"
             type="checkbox"
-            className="favourites"
             onChange={handleChange}
             checked={isFilteringFavs}
+            className="checkBox-favourite"
           />
-        </nav>
+      
         <CardList
           characterList={data}
           filterFavs={isFilteringFavs}

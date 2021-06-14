@@ -35,19 +35,23 @@ const Card = ({ id, name, img }) => {
 
   return (
     <>
+    <div className="card-container">
+      
+        <input
+        type="checkbox"
+        onChange={() => handleChange()}
+        checked={isCardChecked}
+        className="checkBox-character"
+      />
       <div className="card" onClick={() => setIsModalOpen(true)}>
+
         <img src={img} alt="" className="card-image" />
 
         <label htmlFor="" className="card-name">
           {name}
         </label>
       </div>
-      <input
-        type="checkbox"
-        onChange={() => handleChange()}
-        checked={isCardChecked}
-        className="checkBox"
-      />
+      </div>
       {isModalOpen && (
         <Modal
           className="card-modal"
