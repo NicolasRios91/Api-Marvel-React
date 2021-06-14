@@ -30,19 +30,20 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
   if (loading) return null;
   if (error) return "error..";
   return (
-    <div className="modal-container">
-      <div className="modal-header">
-        <p id="modal-characterName">{characterName}</p>
-        <button onClick={() => setIsOpen(false)}>Close</button>
-      </div>
-      <div className="modal-itemList">
-        {data.map((comic) => {
-          let img = comic.thumbnail.path + "." + comic.thumbnail.extension;
-          let comicTitle = comic.title;
-          let description = comic.description;
-          return (
-            <>
-              <div className="modal-item-container">
+    <div className="modal-overlay">
+      <div className="modal-container">
+        <div className="modal-header">
+          <p id="modal-characterName">{characterName}</p>
+          <button onClick={() => setIsOpen(false)}>Close</button>
+        </div>
+        <div className="modal-itemList">
+          {data.map((comic) => {
+            let img = comic.thumbnail.path + "." + comic.thumbnail.extension;
+            let comicTitle = comic.title;
+            let description = comic.description;
+
+            return (
+              <div key={comic.id} className="modal-item-container">
                 <div
                   className="modal-item"
                   onClick={() => history.push("/comic", { comic })}
@@ -55,9 +56,9 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
                   <p>{description}</p>
                 </div>
               </div>
-            </>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );
