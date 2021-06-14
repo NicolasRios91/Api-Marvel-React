@@ -12,8 +12,18 @@ const CharacterList = () => {
   const history = useHistory();
   const [searchValue, setSearchValue] = useState(randomCharacter());
   const [data, setData] = useState(null);
+  const [isFilteringFavs, setIsFilteringFavs] = useState(false);
+  const [favsList, setFavsList] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const handleChange = () => {
+    setIsFilteringFavs(!isFilteringFavs);
+    if (!isFilteringFavs) {
+      setFavsList(JSON.parse(localStorage.getItem("favourites")));
+    }
+  };
+
   useEffect(() => {
     if (searchValue.startsWith("http")) {
       const res = searchValue.split("/");
@@ -38,14 +48,27 @@ const CharacterList = () => {
       });
   }, [searchValue]);
 
-  if (loading) return "Loading..";
+  if (loading) return null;
   if (error) return "error..";
 
   return (
     <>
       <Header onChange={setSearchValue} img={marvel}></Header>
+
       <div className="character-list-container">
-        <CardList characterList={data}> </CardList>
+        <nav>
+          <input
+            type="checkbox"
+            className="favourites"
+            onChange={handleChange}
+            checked={isFilteringFavs}
+          />
+        </nav>
+        <CardList
+          characterList={data}
+          filterFavs={isFilteringFavs}
+          favsList={favsList}
+        />
       </div>
       <Footer></Footer>
     </>
