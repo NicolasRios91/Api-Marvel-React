@@ -4,6 +4,7 @@ import Card from "./Card";
 const showCards = (list) => {
   console.log("show cards list", list);
   if (list) {
+    if(list.length ===0) return <p>No characters found</p>
     return list.map((element) => {
       let img =
         element.img ||
@@ -23,9 +24,6 @@ const showCards = (list) => {
 };
 
 const CardList = ({ characterList, filterFavs, favsList }) => {
-  console.log("characterList ", characterList);
-  console.log("filterFavs ", filterFavs);
-  console.log("favsList ", favsList);
   return (
     <div className="card-list">
       {showCards(filterFavs ? favsList : characterList)}
