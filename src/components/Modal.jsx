@@ -34,7 +34,7 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
       <div className="modal-container">
         <div className="modal-header">
           <p id="modal-characterName">{characterName}</p>
-          <button onClick={() => setIsOpen(false)}>Close</button>
+          <button onClick={() => setIsOpen(false)} id="btn-close-modal">X</button>
         </div>
         <div className="modal-itemList">
           {data.map((comic) => {
