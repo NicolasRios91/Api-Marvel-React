@@ -55,13 +55,15 @@ const ComicPreview = () => {
         });
     }
   }, []);
-  if (loading) return "Loading..";
+  if (loading) return null;
   if (error) return "error..";
 
   return (
     <>
       <nav className="comic-navigation">
-      <button id="back-btn"onClick={() => history.push("/")}>&#8249;</button>
+        <button id="back-btn" onClick={() => history.push("/")}>
+          &#8249;
+        </button>
       </nav>
       <div className="comic-container">
         <div className="comic-image">

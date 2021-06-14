@@ -27,7 +27,7 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
         setLoading(false);
       });
   }, []);
-  if (loading) return "Loading..";
+  if (loading) return null;
   if (error) return "error..";
   return (
     <div className="modal-container">
@@ -47,11 +47,7 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
                   className="modal-item"
                   onClick={() => history.push("/comic", { comic })}
                 >
-                  <img
-                    src={img}
-                    alt="modal-image"
-                    className="modal-image"
-                  />
+                  <img src={img} alt="modal-image" className="modal-image" />
                 </div>
                 <div className="modal-info">
                   <p id="modal-comicTitle">{comicTitle}</p>
