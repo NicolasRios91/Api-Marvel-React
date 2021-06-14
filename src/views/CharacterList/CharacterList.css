@@ -1,3 +1,8 @@
+body {
+  margin: auto;
+  min-width: 360px;
+}
+
 .header-list {
   display: flex;
   flex-direction: row;
@@ -28,7 +33,7 @@
   margin: auto;
   border: solid 1px rgb(204, 200, 200);
   border-top: none;
- }
+}
 .card-list {
   position: relative;
   margin: auto;
@@ -40,44 +45,115 @@
   justify-content: space-evenly;
   box-sizing: border-box;
 }
-.card-container{
+.card-container {
   display: flex;
   flex-direction: column;
-  flex: 4 0 calc(19% - 15px);
   width: 100%;
+  flex: 0 0 calc(19% - 15px);
   margin: 15px;
   margin-top: 0;
   box-sizing: border-box;
-
 }
-.checkBox-character,.checkBox-favourite{
-  visibility:hidden;
-  font-size:30px;
+.checkBox-favourite {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 14%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .card-container {
+    flex: 0 0 25%;
+  }
+  .card-list {
+    padding: 0ch;
+  }
+  .character-list-container,
+  .header-list {
+    width: 70%;
+  }
+  .checkBox-favourite {
+    margin-right: 15%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .card-container {
+    flex: 0 0 25%;
+  }
+  .card-list {
+    padding: 0ch;
+  }
+}
+.character-list-container,
+.header-list {
+  width: 80%;
+}
+.checkBox-favourite {
+  margin-right: 12%;
+}
+
+@media only screen and (max-width: 900px) {
+  .card-container {
+    flex: 0 0 28%;
+  }
+  .card-list {
+    width: 90%;
+    padding: 0ch;
+  }
+  .card-container,
+  .header-list,
+  .character-list-container {
+    margin: auto;
+    width: 90%;
+  }
+  .checkBox-favourite {
+    margin-right: 7%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .card-container {
+    flex: 0 0 30%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .card-container {
+    flex: 0 0 40%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .card-list {
+    width: 100%;
+    padding: 0ch;
+  }
+  .checkBox-favourite {
+    margin-right: 9%;
+  }
+}
+
+.checkBox-character,
+.checkBox-favourite {
+  visibility: hidden;
+  font-size: 30px;
   height: 40px;
-  color:yellow;
-  cursor:pointer;
+  color: yellow;
+  cursor: pointer;
 }
 
-.checkBox-favourite{
-  /* margin-left: 48%; */
-  position:absolute;
-  top:0;
-  right:0;
-  margin-right: 23%;
-}
-.checkBox-character{
+.checkBox-character {
   margin-left: 43%;
 }
 
-.checkBox-character:before,.checkBox-favourite::before {
-  content:"\2606";
- /* position: absolute; */
- visibility:visible;
-}
-.checkBox-character:checked:before,.checkBox-favourite:checked:before {
-  content:"\2605";
+.checkBox-character:before,
+.checkBox-favourite::before {
+  content: "\2606";
   /* position: absolute; */
- visibility: visible;
+  visibility: visible;
+}
+.checkBox-character:checked:before,
+.checkBox-favourite:checked:before {
+  content: "\2605";
+  /* position: absolute; */
+  visibility: visible;
 }
 .card {
   position: relative;
@@ -86,7 +162,7 @@
   /* flex: 4 0 calc(19% - 15px); */
   display: flex;
   flex-direction: column;
-  /* margin: 15px; */
+  margin: auto;
   box-shadow: inset 0px -80px 60px #000000;
 }
 .card:hover {
