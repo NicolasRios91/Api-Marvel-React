@@ -22,6 +22,33 @@ const ComicPreview = () => {
     return stringCreators;
   };
 
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const formatDate = (date) => {
+    let dateValues = date.split("T");
+    let dateFormatted = dateValues[0];
+    let dateSplit = dateFormatted.split("-");
+    let day = dateSplit[2];
+    let month = dateSplit[1];
+    let year = dateSplit[0];
+    month = months[month - 1];
+    let strDate = `${month} ${day}, ${year}`;
+    setDate(strDate);
+  };
+
   const setValues = (comic) => {
     let stringCreators = formatCreators(comic.creators.items);
     let formattedCreators = stringCreators
@@ -29,7 +56,7 @@ const ComicPreview = () => {
       .map((str) => <p>{str}</p>);
     setComic(comic);
     setImage(comic.thumbnail.path + "." + comic.thumbnail.extension);
-    setDate(comic.dates[0]);
+    formatDate(comic.dates[0].date);
     setCreators(formattedCreators);
     setLoading(false);
   };
@@ -71,7 +98,7 @@ const ComicPreview = () => {
         </div>
         <div className="comic-info">
           <h3>{comic.title}</h3>
-          <p className="comic-date">Published: {date.date}</p>
+          <p className="comic-date">Published: {date}</p>
           <p className="comic-creators">{creators}</p>
           <p className="comic-description">{comic.description}</p>
         </div>
