@@ -10,7 +10,7 @@ const Card = ({ id, name, img }) => {
     if (favList?.some((e) => e.id === id)) {
       setIsCardChecked(true);
     }
-  });
+  }, [id]);
 
   const handleChange = () => {
     setIsCardChecked(!isCardChecked);
@@ -35,22 +35,20 @@ const Card = ({ id, name, img }) => {
 
   return (
     <>
-    <div className="card-container">
-      
+      <div className="card-container">
         <input
-        type="checkbox"
-        onChange={() => handleChange()}
-        checked={isCardChecked}
-        className="checkBox-character"
-      />
-      <div className="card" onClick={() => setIsModalOpen(true)}>
+          type="checkbox"
+          onChange={() => handleChange()}
+          checked={isCardChecked}
+          className="checkBox-character"
+        />
+        <div className="card" onClick={() => setIsModalOpen(true)}>
+          <img src={img} alt="" className="card-image" />
 
-        <img src={img} alt="" className="card-image" />
-
-        <label htmlFor="" className="card-name">
-          {name}
-        </label>
-      </div>
+          <label htmlFor="" className="card-name">
+            {name}
+          </label>
+        </div>
       </div>
       {isModalOpen && (
         <Modal
