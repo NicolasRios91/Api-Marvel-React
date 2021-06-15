@@ -46,7 +46,8 @@ const CharacterList = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, [searchValue]);
+  }, [searchValue, history]);
+
   if (loading) return null;
   if (error) return "error..";
 
@@ -55,15 +56,14 @@ const CharacterList = () => {
       <Header onChange={setSearchValue} img={marvel}></Header>
 
       <div className="character-list-container">
-        
-          <input
-            id="favourites"
-            type="checkbox"
-            onChange={handleChange}
-            checked={isFilteringFavs}
-            className="checkBox-favourite"
-          />
-      
+        <input
+          id="favourites"
+          type="checkbox"
+          onChange={handleChange}
+          checked={isFilteringFavs}
+          className="checkBox-favourite"
+        />
+
         <CardList
           characterList={data}
           filterFavs={isFilteringFavs}

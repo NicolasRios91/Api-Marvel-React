@@ -17,7 +17,6 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
       })
       .then((dataResponse) => {
         setData(dataResponse.data.results);
-        console.log(dataResponse);
       })
       .catch((error) => {
         console.log("error", error);
@@ -26,7 +25,7 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [characterId]);
   if (loading) return null;
   if (error) return "error..";
   return (
@@ -34,21 +33,22 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
       <div className="modal-container">
         <div className="modal-header">
           <p id="modal-characterName">{characterName}</p>
-          <button onClick={() => setIsOpen(false)} id="btn-close-modal">X</button>
+          <button onClick={() => setIsOpen(false)} id="btn-close-modal">
+            X
+          </button>
         </div>
         <div className="modal-itemList">
           {data.map((comic) => {
             let img = comic.thumbnail.path + "." + comic.thumbnail.extension;
             let comicTitle = comic.title;
             let description = comic.description;
-
             return (
               <div key={comic.id} className="modal-item-container">
                 <div
                   className="modal-item"
                   onClick={() => history.push("/comic", { comic })}
                 >
-                  <img src={img} alt="modal-image" className="modal-image" />
+                  <img src={img} alt={comic.title} className="modal-image" />
                 </div>
                 <div className="modal-info">
                   <p id="modal-comicTitle">{comicTitle}</p>

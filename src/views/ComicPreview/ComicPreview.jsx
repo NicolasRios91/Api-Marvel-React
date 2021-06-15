@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { useHistory } from "react-router-dom";
 import { fetchComic } from "../../api/index";
+import { months } from "../../utils";
 
 const ComicPreview = () => {
   const location = useLocation();
@@ -22,31 +23,13 @@ const ComicPreview = () => {
     return stringCreators;
   };
 
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
   const formatDate = (date) => {
-    let dateValues = date.split("T");
-    let dateFormatted = dateValues[0];
-    let dateSplit = dateFormatted.split("-");
-    let day = dateSplit[2];
-    let month = dateSplit[1];
-    let year = dateSplit[0];
-    month = months[month - 1];
-    let strDate = `${month} ${day}, ${year}`;
-    setDate(strDate);
+    const newDate = new Date(date);
+    let year = newDate.getFullYear();
+    let day = newDate.getDate();
+    let indexMonth = newDate.getMonth();
+    let formattedDate = `${months[indexMonth]} ${day}, ${year}`;
+    setDate(formattedDate);
   };
 
   const setValues = (comic) => {
@@ -82,7 +65,8 @@ const ComicPreview = () => {
           setLoading(false);
         });
     }
-  }, []);
+  }, [location.state.comic, location.state.comicId]);
+
   if (loading) return null;
   if (error) return "error..";
 
@@ -95,12 +79,12 @@ const ComicPreview = () => {
       </nav>
       <div className="comic-container">
         <div className="comic-image">
-          <img src={image} alt="comic Image" id="Comic-Image" />
+          <img src={image} alt={comic.title} id="Comic-Image" />
         </div>
         <div className="comic-info">
           <h3>{comic.title}</h3>
           <p className="comic-date">Published: {date}</p>
-          <p className="comic-creators">{creators}</p>
+          <div className="comic-creators">{creators}</div>
           <p className="comic-description">{comic.description}</p>
         </div>
       </div>
