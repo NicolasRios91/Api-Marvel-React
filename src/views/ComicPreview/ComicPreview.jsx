@@ -83,9 +83,13 @@ const ComicPreview = () => {
         </div>
         <div className="comic-info">
           <h3>{comic.title}</h3>
-          <p className="comic-date">Published: {date}</p>
+          <section className="comic-date">
+            <p>Published: {date}</p>
+          </section>
           <div className="comic-creators">{creators}</div>
-          <p className="comic-description">{comic.description}</p>
+          <section className="comic-description">
+            <p>{comic.description}</p>
+          </section>
         </div>
       </div>
     </>

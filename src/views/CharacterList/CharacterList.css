@@ -31,8 +31,10 @@ body {
 .character-list-container {
   width: 60%;
   margin: auto;
+  padding: 40px 0px 40px 0px;
   border: solid 1px rgb(204, 200, 200);
   border-top: none;
+  box-sizing: border-box;
 }
 .card-list {
   position: relative;
@@ -60,14 +62,19 @@ body {
   right: 0;
   margin-right: 22%;
 }
-
+#star-checkbox {
+  position: absolute;
+  z-index: 100;
+}
 .checkBox-character,
 .checkBox-favourite {
   visibility: hidden;
   font-size: 30px;
   height: 40px;
-  color: rgb(206, 206, 23);
   cursor: pointer;
+}
+.checkBox-character {
+  color: white;
 }
 
 .checkBox-character {
@@ -77,34 +84,32 @@ body {
 .checkBox-character:before,
 .checkBox-favourite::before {
   content: "\2606";
-  /* position: absolute; */
   visibility: visible;
 }
 .checkBox-character:checked:before,
 .checkBox-favourite:checked:before {
   content: "\2605";
-  /* position: absolute; */
   visibility: visible;
 }
 .card {
   position: relative;
   width: 100%;
   height: 325px;
-  /* flex: 4 0 calc(19% - 15px); */
   display: flex;
   flex-direction: column;
   margin: auto;
-  box-shadow: inset 0px -80px 60px #000000;
+  box-shadow: inset 0px -55px 30px #000000, inset 0px 40px 30px rgb(32, 30, 30);
+  cursor: pointer;
 }
 .card:hover {
-  cursor: pointer;
-  box-shadow: inset 30px -80px 60px #000000;
+  width: 98%;
+  margin: auto;
+  box-shadow: inset 0px -45px 30px #000000, inset 0px 40px 30px rgb(32, 30, 30);
 }
 
 .card:active {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: inset 0px -80px 60px #000000;
+  width: 100%;
+  margin: auto;
 }
 
 .card-image {
@@ -117,7 +122,7 @@ body {
 .card-name {
   color: white;
   padding: 10px;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: bold;
   position: absolute;
   bottom: 0;
@@ -133,7 +138,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(128, 128, 128, 0.5);
-  z-index: 50;
+  z-index: 500;
 }
 .modal-container {
   padding: 10px;
@@ -292,7 +297,6 @@ p {
   .card-container,
   .header-list,
   .character-list-container {
-    margin: auto;
     width: 90%;
   }
   .checkBox-favourite {

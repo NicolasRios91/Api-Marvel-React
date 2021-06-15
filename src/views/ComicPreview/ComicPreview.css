@@ -50,12 +50,12 @@ h3 {
 }
 .comic-date,
 .comic-creators {
-  font-size: 1em;
+  font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 20px;
 }
 .comic-description {
-  font-size: 1em;
+  font-size: 0.9rem;
 }
 @media only screen and (max-width: 1200px) {
   .comic-container,
@@ -63,9 +63,11 @@ h3 {
     width: 70%;
   }
   .comic-date,
-  .comic-creators,
+  .comic-creators {
+    font-size: 1rem;
+  }
   .comic-description {
-    font-size: 0.8em;
+    font-size: 0.8rem;
   }
 }
 @media only screen and (max-width: 1100px) {
@@ -74,9 +76,11 @@ h3 {
     width: 75%;
   }
   .comic-date,
-  .comic-creators,
+  .comic-creators {
+    font-size: 1rem;
+  }
   .comic-description {
-    font-size: 0.8em;
+    font-size: 0.8rem;
   }
 }
 @media only screen and (max-width: 600px) {
