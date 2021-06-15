@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Welcome To the Marvel App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Features
 
-## Available Scripts
+## List of characters
 
-In the project directory, you can run:
+The api will show random characters every time you load or refresh It.
 
-### `npm start`
+## Search
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Characters can be searched by using the search bar, by full name or a piece of It.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Comic Search
 
-### `npm test`
+Comics can be searched as well, provided full URL of the Comic.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Card Details
 
-### `npm run build`
+Card Characters link to a modal, which contains a list of comics where the character appears.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Comic modal
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Shows a list of comics, redirects to a new view when a comic image is clicked.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Comic View
 
-### `npm run eject`
+Provided a comic URL or by being redirected by comic modal, comic view shows the full image of the comic, as well as its details and description.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Favourites
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Each card can be set as favourite (star card icon).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Favourite List
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Shows only favourite cards by checking star button (top right). This feature can be used any time.
 
-## Learn More
+## Responsive Design
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The app adapts according to resolotion size
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Features not achieved
 
-### Code Splitting
+# Comic search by comic name or link (only with full URL).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+I guess I could have used a dropBox for this feature, since I was confused about how to use the same input with different fetch calls.
 
-### Analyzing the Bundle Size
+# Search bar does not support multiple characters or comics.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This one I didn't kwow how to implement. Couldn't figure out how to pass multiple characters to the fecth call.
 
-### Making a Progressive Web App
+# No redux implementation.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I had no time left to implement this.
