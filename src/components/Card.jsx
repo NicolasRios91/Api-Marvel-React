@@ -31,17 +31,20 @@ const Card = ({ id, name, img }) => {
       });
       localStorage.setItem("favourites", JSON.stringify(favList));
     }
+    setIsModalOpen(false);
   };
 
   return (
     <>
       <div className="card-container">
-        <input
-          type="checkbox"
-          onChange={() => handleChange()}
-          checked={isCardChecked}
-          className="checkBox-character"
-        />
+        <section id="star-checkbox">
+          <input
+            type="checkbox"
+            onChange={() => handleChange()}
+            checked={isCardChecked}
+            className="checkBox-character"
+          />
+        </section>
         <div className="card" onClick={() => setIsModalOpen(true)}>
           <img src={img} alt="" className="card-image" />
 
