@@ -53,7 +53,8 @@ const ComicPreview = () => {
     let stringCreators = formatCreators(comic.creators.items);
     let formattedCreators = stringCreators
       .split("\n")
-      .map((str) => <p>{str}</p>);
+      .map((str) => <p key={str}>{str}</p>);
+
     setComic(comic);
     setImage(comic.thumbnail.path + "." + comic.thumbnail.extension);
     formatDate(comic.dates[0].date);
