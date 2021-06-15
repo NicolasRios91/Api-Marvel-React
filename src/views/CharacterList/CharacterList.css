@@ -152,7 +152,7 @@ body {
   height: 450px;
   border: 1px solid black;
   z-index: 9999;
-  top: 15%;
+  top: 12%;
   border-radius: 10px;
   box-sizing: border-box;
 }
@@ -315,6 +315,7 @@ p {
 }
 @media only screen and (max-width: 420px) {
   .card-list {
+    flex-direction: column;
     width: 100%;
     padding: 0ch;
   }

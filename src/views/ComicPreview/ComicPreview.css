@@ -1,6 +1,6 @@
 .comic-navigation {
   width: 60%;
-  min-width: 420px;
+  min-width: 360px;
   margin: auto;
   border-right: solid 1px rgb(204, 200, 200);
   border-left: solid 1px rgb(204, 200, 200);
@@ -28,7 +28,7 @@
 .comic-container {
   margin: auto;
   padding: 0px 55px 55px 55px;
-  min-width: 420px;
+  min-width: 360px;
   width: 60%;
   display: flex;
   flex-direction: row;
