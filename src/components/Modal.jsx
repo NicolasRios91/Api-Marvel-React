@@ -5,9 +5,9 @@ import { useHistory } from "react-router-dom";
 const Modal = ({ characterId, characterName, setIsOpen }) => {
   const history = useHistory();
   const [data, setData] = useState();
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     fetchComicList(characterId)
       .then((response) => {
