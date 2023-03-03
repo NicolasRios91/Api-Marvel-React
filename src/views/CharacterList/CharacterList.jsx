@@ -8,50 +8,25 @@ import CardList from "../../components/CardList";
 import { useHistory } from "react-router-dom";
 import marvel from "../../img/bannerMarvel.jpg";
 import { useDebounce } from "../../custom-hooks/useDebounce";
+import { useGetCharacters } from "../../custom-hooks/useGetCharacters";
 
 const CharacterList = () => {
   const history = useHistory();
   const [searchValue, setSearchValue] = useState(randomCharacter());
-  const [data, setData] = useState(null);
-  const [isFilteringFavs, setIsFilteringFavs] = useState(false);
-  const [favsList, setFavsList] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [isFilteringFaves, setIsFilteringFaves] = useState(false);
+  const [favesList, setFavesList] = useState(null);
 
   const { debouncedValue } = useDebounce(searchValue, 500);
+  const { data, isLoading, error } = useGetCharacters(debouncedValue);
 
   const handleChange = () => {
-    setIsFilteringFavs(!isFilteringFavs);
-    if (!isFilteringFavs) {
-      setFavsList(JSON.parse(localStorage.getItem("favorite")));
+    setIsFilteringFaves(!isFilteringFaves);
+    if (!isFilteringFaves) {
+      setFavesList(JSON.parse(localStorage.getItem("favorite")));
     }
   };
 
-  useEffect(() => {
-    if (debouncedValue?.startsWith("http")) {
-      const res = debouncedValue.split("/");
-      const comicId = res[5];
-      history.push("/comic", { comicId });
-    }
-    fetchList(debouncedValue)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-      })
-      .then((dataResponse) => {
-        setData(dataResponse.data.results.slice(0, 8));
-      })
-      .catch((error) => {
-        console.log("error", error);
-        setError(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [debouncedValue, history]);
-
-  if (loading) return null;
+  if (isLoading) return "loading...";
   if (error) return "error..";
 
   return (
@@ -63,14 +38,14 @@ const CharacterList = () => {
           id="favorite"
           type="checkbox"
           onChange={handleChange}
-          checked={isFilteringFavs}
+          checked={isFilteringFaves}
           className="checkBox-favorite"
         />
 
         <CardList
           characterList={data}
-          filterFavs={isFilteringFavs}
-          favsList={favsList}
+          filterFaves={isFilteringFaves}
+          favesList={favesList}
         />
       </div>
       <Footer></Footer>

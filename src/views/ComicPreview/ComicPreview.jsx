@@ -1,73 +1,19 @@
 import "./ComicPreview.css";
-import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { useHistory } from "react-router-dom";
-import { fetchComic } from "../../api/index";
-import { months } from "../../utils";
+import { useGetComics } from "../../custom-hooks/useGetComics";
 
 const ComicPreview = () => {
   const location = useLocation();
   const history = useHistory();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [comic, setComic] = useState(null);
-  const [image, setImage] = useState();
-  const [date, setDate] = useState();
-  const [creators, setCreators] = useState();
+  const { comic: data, comicId } = location.state;
 
-  const formatCreators = (creators) => {
-    let stringCreators = "";
-    creators.forEach((element) => {
-      stringCreators += `${element.role}: ${element.name} \n`;
-    });
-    return stringCreators;
-  };
+  const { isLoading, error, comic, image, date, creators } = useGetComics(
+    data,
+    comicId
+  );
 
-  const formatDate = (date) => {
-    const newDate = new Date(date);
-    let year = newDate.getFullYear();
-    let day = newDate.getDate();
-    let indexMonth = newDate.getMonth();
-    let formattedDate = `${months[indexMonth]} ${day}, ${year}`;
-    setDate(formattedDate);
-  };
-
-  const setValues = (comic) => {
-    let stringCreators = formatCreators(comic.creators.items);
-    let formattedCreators = stringCreators
-      .split("\n")
-      .map((str) => <p key={str}>{str}</p>);
-
-    setComic(comic);
-    setImage(comic.thumbnail.path + "." + comic.thumbnail.extension);
-    formatDate(comic.dates[0].date);
-    setCreators(formattedCreators);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    if (location.state.comic) {
-      setValues(location.state.comic);
-    } else {
-      fetchComic(location.state.comicId)
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          }
-        })
-        .then((dataResponse) => {
-          setValues(dataResponse.data.results[0]);
-        })
-        .catch((error) => {
-          setError(error);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }
-  }, [location.state.comic, location.state.comicId]);
-
-  if (loading) return null;
+  if (isLoading) return "loading...";
   if (error) return "error..";
 
   return (

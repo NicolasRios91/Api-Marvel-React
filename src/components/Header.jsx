@@ -11,7 +11,6 @@ const Header = ({ onChange, img }) => {
         placeholder="Search"
         results="0"
       ></input>
-
     </header>
   );
 };

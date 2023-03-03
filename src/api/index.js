@@ -1,4 +1,5 @@
 import { randomCharacter } from "../utils";
+
 export function fetchList(searchValue) {
   if (searchValue === "") {
     searchValue = randomCharacter();

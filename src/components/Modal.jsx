@@ -1,33 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { fetchComicList } from "../api";
 import { useHistory } from "react-router-dom";
+import { useGetComicList } from "../custom-hooks/useGetComicList";
 
 const Modal = ({ characterId, characterName, setIsOpen }) => {
   const history = useHistory();
-  const [data, setData] = useState();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetchComicList(characterId)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-      })
-      .then((dataResponse) => {
-        setData(dataResponse.data.results);
-      })
-      .catch((error) => {
-        console.log("error", error);
-        setError(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [characterId]);
-  if (loading) return null;
+  const { data, error, isLoading } = useGetComicList(characterId);
+
+  if (isLoading) return "loading...";
   if (error) return "error..";
+
   return (
     <div className="modal-overlay">
       <div className="modal-container">
@@ -38,7 +19,7 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
           </button>
         </div>
         <div className="modal-itemList">
-          {data.map((comic) => {
+          {data?.map((comic) => {
             let img = comic.thumbnail.path + "." + comic.thumbnail.extension;
             let comicTitle = comic.title;
             let description = comic.description;
