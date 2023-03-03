@@ -20,7 +20,7 @@ const CharacterList = () => {
   const handleChange = () => {
     setIsFilteringFavs(!isFilteringFavs);
     if (!isFilteringFavs) {
-      setFavsList(JSON.parse(localStorage.getItem("favourites")));
+      setFavsList(JSON.parse(localStorage.getItem("favorites")));
     }
   };
 
@@ -57,11 +57,11 @@ const CharacterList = () => {
 
       <div className="character-list-container">
         <input
-          id="favourites"
+          id="favorites"
           type="checkbox"
           onChange={handleChange}
           checked={isFilteringFavs}
-          className="checkBox-favourite"
+          className="checkBox-favorites"
         />
 
         <CardList

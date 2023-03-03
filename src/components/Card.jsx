@@ -6,7 +6,7 @@ const Card = ({ id, name, img }) => {
   const [isCardChecked, setIsCardChecked] = useState(false);
 
   useEffect(() => {
-    const favList = JSON.parse(localStorage.getItem("favourites"));
+    const favList = JSON.parse(localStorage.getItem("favorites"));
     if (favList?.some((e) => e.id === id)) {
       setIsCardChecked(true);
     }
@@ -14,14 +14,14 @@ const Card = ({ id, name, img }) => {
 
   const handleChange = () => {
     setIsCardChecked(!isCardChecked);
-    let favList = JSON.parse(localStorage.getItem("favourites"));
+    let favList = JSON.parse(localStorage.getItem("favorites"));
     if (!isCardChecked) {
       if (favList) {
         favList.push({ id: id, name: name, img: img });
-        localStorage.setItem("favourites", JSON.stringify(favList));
+        localStorage.setItem("favorites", JSON.stringify(favList));
       } else {
         localStorage.setItem(
-          "favourites",
+          "favorites",
           JSON.stringify([{ id: id, name: name, img: img }])
         );
       }
@@ -29,7 +29,7 @@ const Card = ({ id, name, img }) => {
       favList = favList.filter((element) => {
         return element.id !== id;
       });
-      localStorage.setItem("favourites", JSON.stringify(favList));
+      localStorage.setItem("favorites", JSON.stringify(favList));
     }
     setIsModalOpen(false);
   };
