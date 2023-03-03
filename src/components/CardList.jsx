@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const showCards = (list) => {
   if (list) {
-    if (list.length === 0) return <p>No characters found</p>;
+    if(list.length ===0) return <p>No characters found</p>
     return list.map((element) => {
       let img =
         element.img ||
@@ -18,7 +18,7 @@ const showCards = (list) => {
       );
     });
   } else {
-    return <p>No favorites found</p>;
+    return <p>No favourites found</p>;
   }
 };
 

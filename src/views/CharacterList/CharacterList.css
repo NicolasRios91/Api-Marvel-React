@@ -57,7 +57,7 @@ body {
   margin-top: 0;
   box-sizing: border-box;
 }
-.checkBox-favorite {
+.checkBox-favourite {
   position: absolute;
   top: 0;
   right: 0;
@@ -68,7 +68,7 @@ body {
   z-index: 100;
 }
 .checkBox-character,
-.checkBox-favorite {
+.checkBox-favourite {
   visibility: hidden;
   font-size: 30px;
   height: 40px;
@@ -83,12 +83,12 @@ body {
 }
 
 .checkBox-character:before,
-.checkBox-favorite::before {
+.checkBox-favourite::before {
   content: "\2606";
   visibility: visible;
 }
 .checkBox-character:checked:before,
-.checkBox-favorite:checked:before {
+.checkBox-favourite:checked:before {
   content: "\2605";
   visibility: visible;
 }
@@ -260,7 +260,7 @@ p {
   .header-list {
     width: 65%;
   }
-  .checkBox-favorite {
+  .checkBox-favourite {
     margin-right: 20%;
   }
 }
@@ -275,7 +275,7 @@ p {
   .header-list {
     width: 70%;
   }
-  .checkBox-favorite {
+  .checkBox-favourite {
     margin-right: 17%;
   }
 }
@@ -300,7 +300,7 @@ p {
   .character-list-container {
     width: 90%;
   }
-  .checkBox-favorite {
+  .checkBox-favourite {
     margin-right: 7%;
   }
 }
@@ -320,7 +320,7 @@ p {
     width: 100%;
     padding: 0ch;
   }
-  .checkBox-favorite {
+  .checkBox-favourite {
     margin-right: 9%;
   }
 }
