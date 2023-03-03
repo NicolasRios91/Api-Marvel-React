@@ -7,6 +7,7 @@ import Header from "../../components/Header";
 import CardList from "../../components/CardList";
 import { useHistory } from "react-router-dom";
 import marvel from "../../img/bannerMarvel.jpg";
+import { useDebounce } from "../../custom-hooks/useDebounce";
 
 const CharacterList = () => {
   const history = useHistory();
@@ -17,6 +18,8 @@ const CharacterList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const { debouncedValue } = useDebounce(searchValue, 500);
+
   const handleChange = () => {
     setIsFilteringFavs(!isFilteringFavs);
     if (!isFilteringFavs) {
@@ -25,12 +28,12 @@ const CharacterList = () => {
   };
 
   useEffect(() => {
-    if (searchValue.startsWith("http")) {
-      const res = searchValue.split("/");
+    if (debouncedValue?.startsWith("http")) {
+      const res = debouncedValue.split("/");
       const comicId = res[5];
       history.push("/comic", { comicId });
     }
-    fetchList(searchValue)
+    fetchList(debouncedValue)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -46,7 +49,7 @@ const CharacterList = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, [searchValue, history]);
+  }, [debouncedValue, history]);
 
   if (loading) return null;
   if (error) return "error..";
