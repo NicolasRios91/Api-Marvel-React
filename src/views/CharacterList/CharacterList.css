@@ -3,26 +3,6 @@ body {
   min-width: 360px;
 }
 
-.header-list {
-  display: flex;
-  flex-direction: row;
-  background-color: white;
-  height: 50px;
-  width: 60%;
-  border: solid 1px rgb(204, 200, 200);
-  text-align: center;
-  margin: auto;
-  box-sizing: border-box;
-}
-
-#header-search {
-  width: 100%;
-  font-size: 1.2em;
-  border: none;
-}
-#header-search:focus {
-  outline: none;
-}
 .App-link {
   color: #61dafb;
 }
@@ -37,204 +17,30 @@ body {
   border-top: none;
   box-sizing: border-box;
 }
-.card-list {
-  position: relative;
-  margin: auto;
-  padding: 0px 30px 30px 30px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  box-sizing: border-box;
-}
-.card-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  flex: 0 0 calc(19% - 15px);
-  margin: 15px;
-  margin-top: 0;
-  box-sizing: border-box;
-}
+
 .checkBox-favorite {
   position: absolute;
   top: 0;
   right: 0;
   margin-right: 22%;
 }
-#star-checkbox {
-  position: absolute;
-  z-index: 100;
-}
-.checkBox-character,
+
 .checkBox-favorite {
   visibility: hidden;
   font-size: 30px;
   height: 40px;
   cursor: pointer;
 }
-.checkBox-character {
-  color: white;
-}
 
-.checkBox-character {
-  margin-left: 43%;
-}
-
-.checkBox-character:before,
-.checkBox-favorite::before {
+.checkBox-favorite:before {
   content: "\2606";
   visibility: visible;
 }
-.checkBox-character:checked:before,
 .checkBox-favorite:checked:before {
   content: "\2605";
   visibility: visible;
 }
-.card {
-  position: relative;
-  width: 100%;
-  height: 325px;
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  box-shadow: inset 0px -55px 30px #000000, inset 0px 40px 30px rgb(32, 30, 30);
-  cursor: pointer;
-}
-.card:hover {
-  width: 98%;
-  margin: auto;
-  box-shadow: inset 0px -45px 30px #000000, inset 0px 40px 30px rgb(32, 30, 30);
-}
 
-.card:active {
-  width: 100%;
-  margin: auto;
-}
-
-.card-image {
-  position: relative;
-  width: 100%;
-  height: 325px;
-  z-index: -2;
-}
-
-.card-name {
-  color: white;
-  padding: 10px;
-  font-size: 1.1em;
-  font-weight: bold;
-  position: absolute;
-  bottom: 0;
-}
-.card-list {
-  width: 100%;
-  height: 100%;
-}
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(128, 128, 128, 0.5);
-  z-index: 500;
-}
-.modal-container {
-  padding: 10px;
-  width: 40%;
-  min-width: 325px;
-  position: relative;
-  background-color: white;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  height: 450px;
-  border: 1px solid black;
-  z-index: 9999;
-  top: 12%;
-  border-radius: 10px;
-  box-sizing: border-box;
-}
-
-.modal-header {
-  box-sizing: border-box;
-  padding-bottom: 15px;
-  margin-bottom: 5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: relative;
-  border-bottom: solid 1px black;
-}
-#btn-close-modal {
-  text-decoration: none;
-  padding: 8px 16px;
-  background-color: black;
-  color: white;
-  border-width: 0ch;
-  box-sizing: border-box;
-  outline: none;
-  cursor: pointer;
-}
-
-#btn-close-modal:active {
-  box-shadow: 0px 0px 2px 2px grey;
-  outline: none;
-}
-
-.modal-itemList {
-  width: 100%;
-  position: relative;
-  background-color: white;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  height: 400px;
-  overflow: auto;
-}
-.modal-item-container {
-  padding: 10px 10px 10px 10px;
-  height: 130px;
-  display: flex;
-  flex-direction: row;
-  box-sizing: border-box;
-}
-
-#modal-characterName {
-  font-size: 1.4em;
-  font-weight: bold;
-  padding-left: 20px;
-}
-
-.modal-image {
-  margin: 0px 10px 0px 10px;
-  border-radius: 15px;
-  width: 100px;
-  height: 120px;
-  cursor: pointer;
-}
-.modal-image:hover {
-  box-shadow: 3px 3px 3px 3px grey;
-}
-.modal-image:active {
-  box-shadow: 2px 2px 2px 2px grey;
-}
-.modal-info {
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-#modal-comicTitle {
-  font-weight: bold;
-}
-.modal-info,
-p {
-  margin: unset;
-}
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -250,14 +56,7 @@ p {
   background: rgb(102, 97, 97);
 }
 @media only screen and (max-width: 1500px) {
-  .card-container {
-    flex: 0 0 25%;
-  }
-  .card-list {
-    padding: 0ch;
-  }
-  .character-list-container,
-  .header-list {
+  .character-list-container {
     width: 65%;
   }
   .checkBox-favorite {
@@ -265,38 +64,15 @@ p {
   }
 }
 @media only screen and (max-width: 1200px) {
-  .card-container {
-    flex: 0 0 25%;
-  }
-  .card-list {
-    padding: 0ch;
-  }
-  .character-list-container,
-  .header-list {
+  .character-list-container {
     width: 70%;
   }
   .checkBox-favorite {
     margin-right: 17%;
   }
 }
-@media only screen and (max-width: 1000px) {
-  .card-container {
-    flex: 0 0 25%;
-  }
-  .card-list {
-    padding: 0ch;
-  }
-}
+
 @media only screen and (max-width: 950px) {
-  .card-container {
-    flex: 0 0 28%;
-  }
-  .card-list {
-    width: 90%;
-    padding: 0ch;
-  }
-  .card-container,
-  .header-list,
   .character-list-container {
     width: 90%;
   }
@@ -304,16 +80,7 @@ p {
     margin-right: 7%;
   }
 }
-@media only screen and (max-width: 700px) {
-  .card-container {
-    flex: 0 0 30%;
-  }
-}
-@media only screen and (max-width: 650px) {
-  .card-container {
-    flex: 0 0 40%;
-  }
-}
+
 @media only screen and (max-width: 420px) {
   .card-list {
     flex-direction: column;
@@ -322,33 +89,5 @@ p {
   }
   .checkBox-favorite {
     margin-right: 9%;
-  }
-}
-@media only screen and (max-width: 1000px) {
-  .modal-container {
-    width: 45%;
-  }
-}
-@media only screen and (max-width: 850px) {
-  .modal-container {
-    width: 55%;
-  }
-}
-@media only screen and (max-width: 700px) {
-  .modal-container {
-    width: 65%;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .modal-item-container {
-    flex-direction: column;
-    height: auto;
-    border-bottom: 1px solid black;
-    margin-bottom: 3px;
-  }
-  .modal-item,
-  #modal-comicTitle {
-    margin: auto;
-    text-align: center;
   }
 }

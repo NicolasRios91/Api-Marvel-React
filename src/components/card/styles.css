@@ -1,0 +1,94 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 0 0 calc(19% - 15px);
+  margin: 15px;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1500px) {
+  .card-container {
+    flex: 0 0 25%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .card-container {
+    flex: 0 0 25%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .card-container {
+    width: 90%;
+    flex: 0 0 28%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .card-container {
+    flex: 0 0 40%;
+  }
+}
+
+#star-checkbox {
+  position: absolute;
+  z-index: 100;
+}
+
+.checkBox-character {
+  visibility: hidden;
+  font-size: 30px;
+  height: 40px;
+  cursor: pointer;
+  color: white;
+  margin-left: 43%;
+}
+
+.checkBox-character:before {
+  content: "\2606";
+  visibility: visible;
+}
+.checkBox-character:checked:before {
+  content: "\2605";
+  visibility: visible;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 325px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  box-shadow: inset 0px -55px 30px #000000, inset 0px 40px 30px rgb(32, 30, 30);
+  cursor: pointer;
+}
+.card:hover {
+  width: 98%;
+  margin: auto;
+  box-shadow: inset 0px -45px 30px #000000, inset 0px 40px 30px rgb(32, 30, 30);
+}
+
+.card:active {
+  width: 100%;
+  margin: auto;
+}
+
+.card-image {
+  position: relative;
+  width: 100%;
+  height: 325px;
+  z-index: -2;
+}
+
+.card-name {
+  color: white;
+  padding: 10px;
+  font-size: 1.1em;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+}

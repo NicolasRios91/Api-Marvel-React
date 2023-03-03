@@ -1,5 +1,6 @@
 import React from "react";
-import Card from "./Card";
+import Card from "../card";
+import "./styles.css";
 
 const showCards = (list) => {
   if (list) {

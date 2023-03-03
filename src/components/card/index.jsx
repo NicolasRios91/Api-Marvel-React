@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Modal from "./Modal";
+import Modal from "../modal";
+import "./styles.css";
 
 const Card = ({ id, name, img }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

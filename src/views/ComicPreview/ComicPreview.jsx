@@ -13,7 +13,7 @@ const ComicPreview = () => {
     comicId
   );
 
-  if (isLoading) return "loading...";
+  if (isLoading) return null;
   if (error) return "error..";
 
   return (

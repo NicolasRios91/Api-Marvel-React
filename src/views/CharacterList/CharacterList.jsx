@@ -1,17 +1,14 @@
 import "./CharacterList.css";
-import React, { useState, useEffect } from "react";
-import { fetchList } from "../../api";
+import React, { useState } from "react";
 import { randomCharacter } from "../../utils";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import CardList from "../../components/CardList";
-import { useHistory } from "react-router-dom";
+import Footer from "../../components/footer";
+import Header from "../../components/header";
+import CardList from "../../components/card-list";
 import marvel from "../../img/bannerMarvel.jpg";
 import { useDebounce } from "../../custom-hooks/useDebounce";
 import { useGetCharacters } from "../../custom-hooks/useGetCharacters";
 
 const CharacterList = () => {
-  const history = useHistory();
   const [searchValue, setSearchValue] = useState(randomCharacter());
   const [isFilteringFaves, setIsFilteringFaves] = useState(false);
   const [favesList, setFavesList] = useState(null);
@@ -26,7 +23,7 @@ const CharacterList = () => {
     }
   };
 
-  if (isLoading) return "loading...";
+  if (isLoading) return null;
   if (error) return "error..";
 
   return (

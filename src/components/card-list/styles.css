@@ -1,0 +1,44 @@
+.card-list {
+  position: relative;
+  margin: auto;
+  padding: 0px 30px 30px 30px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1500px) {
+  .card-list {
+    padding: 0ch;
+  }
+}
+
+/* @media only screen and (max-width: 1200px) {
+  .card-list {
+    padding: 0ch;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .card-list {
+    padding: 0ch;
+  }
+} */
+
+@media only screen and (max-width: 950px) {
+  .card-list {
+    width: 90%;
+    padding: 0ch;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .card-list {
+    flex-direction: column;
+    width: 100%;
+    padding: 0ch;
+  }
+}

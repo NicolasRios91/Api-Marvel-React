@@ -1,0 +1,38 @@
+.header-list {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  height: 50px;
+  width: 60%;
+  border: solid 1px rgb(204, 200, 200);
+  text-align: center;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1500px) {
+  .header-list {
+    width: 65%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .header-list {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .header-list {
+    width: 90%;
+  }
+}
+
+#header-search {
+  width: 100%;
+  font-size: 1.2em;
+  border: none;
+}
+#header-search:focus {
+  outline: none;
+}
