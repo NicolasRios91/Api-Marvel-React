@@ -12,7 +12,7 @@ body {
 .character-list-container {
   width: 60%;
   margin: auto;
-  padding: 40px 0px 40px 0px;
+  padding: 40px 20px;
   border: solid 1px rgb(204, 200, 200);
   border-top: none;
   box-sizing: border-box;
@@ -35,10 +35,12 @@ body {
 .checkBox-favorite:before {
   content: "\2606";
   visibility: visible;
+  color: #ffde00;
 }
 .checkBox-favorite:checked:before {
   content: "\2605";
   visibility: visible;
+  color: #ffde00;
 }
 
 ::-webkit-scrollbar {

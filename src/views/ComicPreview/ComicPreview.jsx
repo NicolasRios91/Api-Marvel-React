@@ -2,6 +2,7 @@ import "./ComicPreview.css";
 import { useLocation } from "react-router";
 import { useHistory } from "react-router-dom";
 import { useGetComics } from "../../custom-hooks/useGetComics";
+import { Loader } from "../../components/loader";
 
 const ComicPreview = () => {
   const location = useLocation();
@@ -13,11 +14,11 @@ const ComicPreview = () => {
     comicId
   );
 
-  if (isLoading) return null;
   if (error) return "error..";
 
   return (
     <>
+      <Loader isOpen={isLoading} />
       <nav className="comic-navigation">
         <button id="back-btn" onClick={() => history.push("/")}>
           &#8249;

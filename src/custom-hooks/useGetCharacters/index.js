@@ -4,10 +4,11 @@ import { fetchList } from "../../api";
 export const useGetCharacters = (query) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState();
 
   const getCharacters = useCallback(async () => {
     try {
+      setIsLoading(true);
       const response = await fetchList(query);
       const jsonResponse = await response.json();
       setData(jsonResponse?.data?.results.slice(0, 8));

@@ -7,6 +7,7 @@ import CardList from "../../components/card-list";
 import marvel from "../../img/bannerMarvel.jpg";
 import { useDebounce } from "../../custom-hooks/useDebounce";
 import { useGetCharacters } from "../../custom-hooks/useGetCharacters";
+import { Loader } from "../../components/loader";
 
 const CharacterList = () => {
   const [searchValue, setSearchValue] = useState(randomCharacter());
@@ -23,11 +24,11 @@ const CharacterList = () => {
     }
   };
 
-  if (isLoading) return null;
   if (error) return "error..";
 
   return (
     <>
+      <Loader isOpen={isLoading} />
       <Header onChange={setSearchValue} img={marvel}></Header>
 
       <div className="character-list-container">
