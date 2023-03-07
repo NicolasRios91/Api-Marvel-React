@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useGetComicList } from "../../custom-hooks/useGetComicList";
 import { Loader } from "../loader";
@@ -6,7 +7,8 @@ import "./styles.css";
 const Modal = ({ characterId, characterName, setIsOpen }) => {
   const history = useHistory();
 
-  const { data, error, isLoading } = useGetComicList(characterId);
+  const { error, isLoading } = useGetComicList(characterId);
+  const data = useSelector((state) => state.comics.data);
 
   if (error) return "error..";
 

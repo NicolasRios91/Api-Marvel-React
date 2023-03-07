@@ -1,21 +1,17 @@
 import "./CharacterList.css";
 import React, { useState } from "react";
-import { randomCharacter } from "../../utils";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import CardList from "../../components/card-list";
-import marvel from "../../img/bannerMarvel.jpg";
-import { useDebounce } from "../../custom-hooks/useDebounce";
 import { useGetCharacters } from "../../custom-hooks/useGetCharacters";
 import { Loader } from "../../components/loader";
+import { useSelector } from "react-redux";
 
 const CharacterList = () => {
-  const [searchValue, setSearchValue] = useState(randomCharacter());
   const [isFilteringFaves, setIsFilteringFaves] = useState(false);
   const [favesList, setFavesList] = useState(null);
-
-  const { debouncedValue } = useDebounce(searchValue, 500);
-  const { data, isLoading, error } = useGetCharacters(debouncedValue);
+  const { isLoading, error, getCharacters } = useGetCharacters();
+  const data = useSelector((state) => state.characters.data);
 
   const handleChange = () => {
     setIsFilteringFaves(!isFilteringFaves);
@@ -29,7 +25,7 @@ const CharacterList = () => {
   return (
     <>
       <Loader isOpen={isLoading} />
-      <Header onChange={setSearchValue} img={marvel}></Header>
+      <Header getCharacters={getCharacters} />
 
       <div className="character-list-container">
         <input
