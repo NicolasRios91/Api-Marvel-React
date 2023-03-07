@@ -11,6 +11,10 @@ export const formatCreators = (creators) => {
   return stringCreators;
 };
 
+export const formatSeparateCreators = (creators) => {
+  return creators?.split("\n").map((str) => <p key={str}>{str}</p>);
+};
+
 export const formatDate = (date) => {
   const newDate = new Date(date);
   let year = newDate.getFullYear();

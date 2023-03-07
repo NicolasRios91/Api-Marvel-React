@@ -1,24 +1,24 @@
 import "./ComicPreview.css";
 import { useLocation } from "react-router";
 import { useHistory } from "react-router-dom";
-import { useGetComics } from "../../custom-hooks/useGetComics";
-import { Loader } from "../../components/loader";
+import {
+  formatCreators,
+  formatDate,
+  formatSeparateCreators,
+} from "../../utils";
 
 const ComicPreview = () => {
   const location = useLocation();
   const history = useHistory();
-  const { comic: data, comicId } = location.state;
+  const { comic } = location.state;
 
-  const { isLoading, error, comic, image, date, creators } = useGetComics(
-    data,
-    comicId
-  );
-
-  if (error) return "error..";
+  let creators = formatCreators(comic.creators.items);
+  let separateCreators = formatSeparateCreators(creators);
+  let image = comic.thumbnail.path + "." + comic.thumbnail.extension;
+  let date = formatDate(comic.dates[0].date);
 
   return (
     <>
-      <Loader isOpen={isLoading} />
       <nav className="comic-navigation">
         <button id="back-btn" onClick={() => history.push("/")}>
           &#8249;
@@ -33,7 +33,7 @@ const ComicPreview = () => {
           <section className="comic-date">
             <p>Published: {date}</p>
           </section>
-          <div className="comic-creators">{creators}</div>
+          <div className="comic-creators">{separateCreators}</div>
           <section className="comic-description">
             <p>{comic.description}</p>
           </section>

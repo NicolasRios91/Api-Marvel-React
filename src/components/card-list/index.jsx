@@ -18,8 +18,6 @@ const showCards = (list) => {
         ></Card>
       );
     });
-  } else {
-    return <p>No favorites found</p>;
   }
 };
 
