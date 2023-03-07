@@ -3,7 +3,7 @@ import { fetchComicList } from "../../api";
 
 export const useGetComicList = (characterId) => {
   const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState();
   const [error, setError] = useState(null);
 
   const getComicList = useCallback(async () => {

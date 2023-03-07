@@ -22,7 +22,7 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
             </button>
           </div>
           <div className="modal-itemList">
-            {data?.length > 0 ? (
+            {data?.length > 0 && !isLoading ? (
               data?.map((comic) => {
                 let img =
                   comic.thumbnail.path + "." + comic.thumbnail.extension;
@@ -49,7 +49,9 @@ const Modal = ({ characterId, characterName, setIsOpen }) => {
                 );
               })
             ) : (
-              <h3 style={{ margin: "auto" }}>No comics found</h3>
+              <h3 style={{ margin: "auto" }}>
+                {!isLoading && "No comics found"}
+              </h3>
             )}
           </div>
         </div>
